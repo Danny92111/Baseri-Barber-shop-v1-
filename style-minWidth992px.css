@@ -1,0 +1,1094 @@
+@media only screen and (min-width: 992px) {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-family: acumin-pro, sans-serif;
+  }
+  body {
+    background-color: white;
+    overflow-x: hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  /* General classes */
+
+  .Title-big {
+    font-size: 3.4rem;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: 500;
+  }
+  .Title-small {
+    font-size: 2.6rem;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .content {
+    font-size: 2.7rem;
+    color: white;
+    font-weight: 200;
+  }
+  .Price-of-service {
+    text-align: center;
+    font-size: 2.2rem;
+    color: white;
+    margin-top: 5px;
+    font-weight: 500;
+  }
+  .close-button-preview {
+    font-size: 4rem;
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0 10px;
+    font-weight: 500;
+  }
+  /* Section with the menu bar */
+
+  #Menu-bar-alt {
+    height: 10vh;
+    width: 100%;
+    z-index: -2;
+  }
+  #Menu-bar {
+    height: 76px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    z-index: 999;
+    opacity: 1;
+  }
+
+  #Logo-title-container {
+    width: 50px;
+    height: 100%;
+    margin-right: 10px;
+    display: none;
+    overflow: hidden;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .ClassWithMenu {
+    background-image: url("icons/icons8-menu-100.png");
+  }
+  .ClassWithX {
+    background-image: url("icons/icons8-x-50.png");
+  }
+  #Toggle-menu {
+    width: 100%;
+    height: 76px;
+    margin-right: 0;
+    position: fixed;
+    left: 0;
+    z-index: 999;
+    background-color: transparent;
+    transition: margin 0.3s ease-in-out;
+    opacity: 1;
+    background-color: #353c3b;
+  }
+  #Toggle-menu ul {
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin-top: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+  }
+  #Toggle-menu ul a {
+    text-decoration: none;
+    color: black;
+  }
+  #Toggle-menu ul li {
+    font-size: 2.9rem;
+    list-style-type: none;
+    line-height: 180%;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+  }
+  #Title-container {
+    width: auto;
+    height: 100%;
+    margin-left: 10px;
+    position: absolute !important;
+    top: 400px;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  #Title-container img {
+    width: 465px;
+    height: 123px;
+    position: relative;
+    top: 0;
+    transform: translateY(-50%);
+  }
+
+  /*  Gallery section */
+
+  #Gallery-button {
+    width: auto;
+    display: table;
+    text-align: center;
+    padding: 5px 5px 0 5px;
+    position: absolute;
+    left: 50%;
+    top: 99%;
+    transform: translate(-50%, -160%);
+    color: white;
+    border: 2px solid white;
+    opacity: 1 !important;
+    z-index: 999;
+  }
+  #Gallery-container {
+    height: 900px;
+    padding-bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    position: relative;
+    background-attachment: fixed;
+    background-image: url("main-image-992pxnew.jpg");
+    background-position: center;
+  }
+  #Gallery-container a {
+    text-decoration: none;
+    color: white;
+  }
+  .Picture-container {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  .Picture-container img {
+    width: 100%;
+    height: 100%;
+  }
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  .fa-chevron-down {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    bottom: 3%;
+    text-align: center;
+    width: 100%;
+  }
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  #View-Gallery-button {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 1;
+    color: white;
+    position: relative;
+    transform: translateY(-150%);
+    padding: 6px;
+    text-transform: uppercase;
+    width: 90%;
+    margin: 0 auto;
+    text-decoration: none;
+  }
+  #View-Gallery-button-link {
+    text-decoration: none;
+    color: white;
+    font-size: 2.8rem;
+    padding: 6px;
+  }
+
+  /* Just images---Opening hours(left)-Price list(right) */
+
+  #Services-container {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    background-color: #353c3b;
+    margin: 25px 0 25px 0;
+  }
+  #Services-title {
+    margin: 0 20px;
+    color: white;
+    padding-top: 20px;
+  }
+  #Services-subtitle {
+    margin: 0 20px 0 20px;
+    color: white;
+    padding-bottom: 20px;
+  }
+  /* Flex-box from Services section */
+
+  #Pictures-services-main-container {
+    display: flex;
+    height: auto;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: space-between;
+    align-content: space-between;
+    width: 100%;
+    background-color: #353c3b;
+  }
+  .Individual-container-picture {
+    width: 25%;
+    height: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .Individual-container-picture div {
+    width: 80%;
+    height: 200px;
+    margin: auto;
+  }
+
+  .Description-of-service {
+    display: inline-block;
+    text-align: center;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: white;
+    margin: 20px auto 0 auto;
+  }
+
+  #PIC-1 {
+    background-image: url("Pics services/Site Icons Services 13-16.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #PIC-2 {
+    background-image: url("Pics services/Site Icons Services beard trim.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #PIC-3 {
+    background-image: url("Pics services/Site Icons Services hair cut and style.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #PIC-4 {
+    background-image: url("Pics services/Site Icons Services hot towel shave.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #PIC-5 {
+    background-image: url("Pics services/Site Icons Services kids under 12.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #PIC-6 {
+    background-image: url("Pics services/Site Icons Services skin fade.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #PIC-7 {
+    background-image: url("Pics services/Site Icons Services moustache.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #PIC-8 {
+    background-image: url("Pics services/Site Icons Services old clipper.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #OAP-image-container {
+    height: 40%;
+  }
+  #OAP-image-container img {
+    display: block;
+    width: 50%;
+    height: 40%;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+
+  /* location map section */
+  #Get-directions-container {
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    background-color: #353c3b;
+    opacity: 1;
+    display: block;
+    position: relative;
+    top: 1100px;
+    opacity: 0;
+    display: none;
+  }
+
+  #Get-directions-container h3 {
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    margin-left: 20px;
+    padding-left: 10px;
+  }
+  #link-to-google-maps {
+    text-decoration: none;
+    color: white;
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  #Map-title {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 2.4rem;
+    padding: 5px 5px 0 5px;
+    color: black;
+    position: relative;
+    z-index: 3;
+    color: white;
+  }
+  #Map-subtitle {
+    text-align: left;
+    margin-left: 20px;
+    padding-left: 10px;
+    color: white;
+  }
+  .transition-effect {
+    animation-name: fade;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+  }
+  .transition-effect-fade-out {
+    animation-name: fade-out;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+  }
+  .opacity-effect {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+  }
+  #Location-map-container {
+    width: 100%;
+    height: 60vh;
+    margin-top: 30px;
+    position: relative;
+    display: none;
+  }
+  #Location-map-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Opening hours content elements */
+
+  #Main-opening-hours-container {
+    height: 750px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #353c3b;
+    opacity: 1;
+    position: relative;
+    margin-bottom: 25px;
+  }
+  #Opening-hours-title {
+    text-align: left;
+    position: relative;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 40px 10px 10px 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 20px;
+    color: white;
+  }
+  #Opening-hours-content-container {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 80%;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin-left: 20px;
+    padding-left: 10px;
+  }
+  .Days-paragraph {
+    font-size: 2.6rem;
+    line-height: 160%;
+    color: white;
+    letter-spacing: 1px;
+  }
+  .Hours-paragraph {
+    font-size: 1.7rem;
+    line-height: 100%;
+    color: white;
+    margin-top: -30px;
+    letter-spacing: 1px;
+  }
+
+  /* Contact us elements */
+
+  #about-us-main-container {
+    background-size: cover;
+    background-color: #353c3b;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    margin-bottom: 25px;
+  }
+  #Contact-us-title {
+    margin-left: 20px;
+    position: relative;
+    width: 50%;
+    padding: 10px;
+    color: white;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 50%;
+    padding-left: 15px;
+    margin-left: 0;
+  }
+  #About-us-info {
+    width: 50%;
+    line-height: 160%;
+    margin: 0 20px;
+    color: white;
+    padding-left: 0;
+    line-height: 190%;
+    position: relative;
+    left: 50%;
+    margin-left: 0;
+    padding: 0 15px;
+  }
+  #about-us-target {
+    width: 100%;
+    visibility: hidden;
+  }
+
+  /* Footer section */
+
+  #Footer-main-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: space-between;
+    justify-content: space-between;
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-size: 1rem;
+    padding-left: 20px;
+    background-color: #353c3b;
+  }
+  #Address-container-footer {
+    width: 70%;
+  }
+  #Address-container-footer p {
+    padding-left: 0;
+    color: white;
+    text-decoration: none;
+    line-height: 150%;
+    margin-left: 10px;
+  }
+
+  #Links-container-footer {
+    width: 40%;
+    margin-left: 35px;
+  }
+  #Links-container-footer ul {
+    list-style: none;
+    text-align: center;
+    line-height: 350%;
+  }
+  #Links-container-footer ul a {
+    text-decoration: none;
+    color: white;
+  }
+  #Links-container-footer ul li {
+    margin-bottom: 3px;
+    font-size: 1.7rem;
+  }
+  #Gallery-container-footer {
+    width: 30%;
+  }
+  #Gallery-container-footer a {
+    text-decoration: none;
+    color: white;
+  }
+  #Gallery-container-footer p {
+    text-decoration: underline;
+    font-size: 1.7rem;
+  }
+  /* Strip elements */
+  .Strip-container-desktop-version {
+    display: flex !important;
+    width: 100%;
+    padding-top: 35px !important;
+    padding-bottom: 30px !important;
+  }
+  .Strip-container-desktop-version::before {
+    content: "Follow us...";
+    font-size: 3.5rem;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px 10px 0 35px;
+  }
+  .Strip-container-desktop-version img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  #Strip-container {
+    max-width: 100%;
+    left: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-right: 10px;
+    margin-left: 0;
+    padding: 0 10%;
+    background-color: #353c3b;
+    display: none;
+  }
+  #Strip-container a {
+  }
+  #Strip-container img {
+    width: 70px;
+    height: 70px;
+    margin: 20px;
+    margin-bottom: 10px;
+    background-color: #353c3b;
+  }
+  /*Copyright-info */
+  #Copyright-container {
+    width: auto;
+    max-width: 100%;
+    padding: 20px 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-top: 25px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #353c3b;
+  }
+  #Copyright-info {
+    margin: 10px 10px 5px 5px;
+    display: inline;
+  }
+  #Copyright-icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin: 10px 10px 5px 5px;
+  }
+  #Opening-hours-background-image-cont {
+    background-image: url("royalty free pics/5.jpeg");
+    width: 100%;
+    height: 100vw;
+    background-size: 100%;
+    margin-bottom: 0;
+    display: none;
+  }
+  #Guy-in-background-cont {
+    background-image: url("royalty free pics/guy.jpg");
+    width: 100%;
+    height: 100vw;
+    background-size: 100%;
+    margin-top: 0;
+    margin-bottom: 30px;
+    display: none;
+  }
+  #Walk-in-welcome-p {
+    line-height: 100%;
+    color: white;
+    margin-left: 20px;
+    padding-left: 10px;
+  }
+  #about-us-background-pic {
+    background-image: url("royalty free pics/hair-salon-1514876_1280.jpg");
+    width: 100%;
+    height: 100vw;
+    background-size: 100%;
+    margin: 80px 0 20px 0;
+  }
+  #Pictures-of-preview-wrapper {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+  }
+  /* Preview images styling */
+
+  /* //---------Haircut and style */
+  #FirstServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #FirstServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 6rem;
+    color: white;
+    margin-right: 10px;
+  }
+  #FirstServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+
+  /* //---------Skin and fade  */
+  #SecondServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #SecondServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 6rem;
+    color: white;
+    margin-right: 10px;
+  }
+  #SecondServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+  /* //---------Hot Towel Shave */
+  #ThirdServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #ThirdServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 6rem;
+    color: white;
+    margin-right: 10px;
+  }
+  #ThirdServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+  /* //---------Beard Trim  */
+  #FourthServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #FourthServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 4rem;
+    font-weight: 600;
+    color: white;
+    margin-right: 10px;
+  }
+  #FourthServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+  /* //---------Teens 13 to 16  */
+  #FifthServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #FifthServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 6rem;
+    color: white;
+    margin-right: 10px;
+  }
+  #FifthServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+  /* //---------Kids 12&under */
+  #SixthServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #SixthServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 6rem;
+    color: white;
+    margin-right: 10px;
+  }
+  #SixthServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+  /* //---------O.A.P. */
+  #SeventhServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #SeventhServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 6rem;
+    color: white;
+    margin-right: 10px;
+  }
+  #SeventhServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+  /* //---------Clipper cut  */
+  #EightServiceImage {
+    position: fixed;
+    width: 490px;
+    height: 490px;
+    left: 0%;
+    top: calc(50% - 245px);
+    transform: scale(0);
+    background-size: 100%;
+    z-index: 998;
+    opacity: 1;
+    transition: transform 1s;
+    margin-left: calc(50% - 245px);
+  }
+  #EightServiceImage i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 6rem;
+    color: white;
+    margin-right: 10px;
+  }
+  #EightServiceImage::after {
+    content: " \f00d";
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+  }
+
+  .bodyInPreviewMode {
+    overflow: hidden;
+    height: 100vh;
+  }
+  .Preview-wrapper {
+    left: 0 !important;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  #Follow-us-p {
+    padding: 15px 0 0 0;
+    margin-left: 0;
+    padding-left: 20px;
+    margin-bottom: -1px;
+    background-color: #353c3b;
+    display: none;
+  }
+  #ImgforDesktopVersionOpeningHours {
+    background-image: url("royalty free pics/5.jpeg");
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 60%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  #pictureAboutUsDesktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 59%;
+    height: 100%;
+    background-image: url("royalty free pics/guy.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-attachment: fixed;
+    transform: translateX(-100px);
+  }
+  #MapSectionForDesktop {
+    display: block;
+    position: relative;
+  }
+  #link-to-google-maps-desktop {
+    text-decoration: none;
+    color: white;
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  #Footer-main-container {
+    display: none;
+  }
+  #Footer-main-container-desktop {
+    display: block;
+    background-color: #353c3b;
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px 0;
+    margin-bottom: 25px;
+  }
+  #Footer-main-container-desktop h1 {
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+  }
+  #Contact-us-title-desktop {
+    margin-bottom: 50px;
+    padding-left: 10px;
+    width: 80%;
+  }
+  #contact-info-desktop {
+    width: 50%;
+    padding-left: 10px;
+  }
+  #address-info-desktop {
+    width: 50%;
+  }
+  .classForGalleryPage {
+    background-color: #353c3b;
+  }
+  .booksy-widget-container-dialog {
+    bottom: calc(50% - 140px);
+  }
+}

@@ -1,0 +1,1036 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  font-family: acumin-pro, sans-serif;
+}
+body {
+  background-color: #353c3b;
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+/* General classes */
+
+.Title-big {
+  font-size: 2.7rem;
+  color: white;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+.Title-small {
+  font-size: 1.9rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.content {
+  font-size: 2rem;
+  color: white;
+  font-weight: 200;
+}
+.Price-of-service {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.close-button-preview {
+  font-size: 4rem;
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0 10px;
+  font-weight: 500;
+}
+/* Section with the menu bar */
+
+#Menu-bar-alt {
+  height: 10vh;
+  width: 100%;
+  z-index: -2;
+}
+#Menu-bar {
+  height: 76px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  background-color: #353c3b;
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin-top: 0;
+  z-index: 999;
+  opacity: 1;
+}
+
+#Logo-title-container {
+  width: 50px;
+  height: 100%;
+  margin-right: 10px;
+  display: inline-block;
+  overflow: hidden;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.ClassWithMenu {
+  background-image: url("icons/icons8-menu-100.png");
+}
+.ClassWithX {
+  background-image: url("icons/icons8-x-50.png");
+}
+#Toggle-menu {
+  width: 100%;
+  height: 100vh;
+  margin-right: -100%;
+  position: fixed;
+  right: 0;
+  z-index: 997;
+  background-color: #6a7c7f;
+  transition: margin 0.3s ease-in-out;
+  /*background-color:#513438;*/
+  opacity: 0.8;
+}
+#Toggle-menu ul {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 20px;
+}
+#Toggle-menu ul a {
+  text-decoration: none;
+  color: black;
+}
+#Toggle-menu ul li {
+  font-size: 3.2rem;
+  list-style-type: none;
+  line-height: 180%;
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+#Title-container {
+  width: 30%;
+  height: 100%;
+  margin-left: 10px;
+}
+#Title-container img {
+  width: 155px;
+  height: 41px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*  Gallery section */
+
+#Gallery-button {
+  width: auto;
+  display: table;
+  text-align: center;
+  padding: 5px 5px 0 5px;
+  position: absolute;
+  left: 50%;
+  top: 99%;
+  transform: translate(-50%, -160%);
+  color: white;
+  border: 2px solid white;
+}
+#Gallery-container {
+  height: 0;
+  padding-bottom: 177.77%;
+  background-size: cover;
+  margin: 0 auto 0 auto;
+  width: 100%;
+  position: relative;
+  background-image: url("Top image.jpg");
+}
+#Gallery-container a {
+  text-decoration: none;
+  color: white;
+}
+.Picture-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.Picture-container img {
+  width: 100%;
+  height: 100%;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.fa-chevron-down {
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  bottom: 3%;
+  text-align: center;
+  width: 100%;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#View-Gallery-button {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 1;
+  color: white;
+  position: relative;
+  transform: translateY(-150%);
+  padding: 6px;
+  text-transform: uppercase;
+  width: 90%;
+  margin: 0 auto;
+  text-decoration: none;
+}
+#View-Gallery-button-link {
+  text-decoration: none;
+  color: white;
+  font-size: 2.8rem;
+  padding: 6px;
+}
+
+/* Just images---Opening hours(left)-Price list(right) */
+
+#Services-container {
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+#Services-title {
+  margin: 0 20px;
+  color: white;
+  padding-top: 10px;
+}
+#Services-subtitle {
+  margin: 0 20px 50px 20px;
+  color: white;
+}
+/* Flex-box from Services section */
+
+#Pictures-services-main-container {
+  display: flex;
+  height: auto;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: space-between;
+  align-content: space-between;
+  width: 100%;
+  background-color: #353c3b;
+}
+.Individual-container-picture {
+  width: 40%;
+  height: 300px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.Individual-container-picture div {
+  width: 100%;
+  height: 200px;
+}
+
+.Description-of-service {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: white;
+  margin: 20px auto 0 auto;
+}
+
+#PIC-1 {
+  background-image: url("Pics services/Site Icons Services 13-16.png");
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PIC-2 {
+  background-image: url("Pics services/Site Icons Services beard trim.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PIC-3 {
+  background-image: url("Pics services/Site Icons Services hair cut and style.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PIC-4 {
+  background-image: url("Pics services/Site Icons Services hot towel shave.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PIC-5 {
+  background-image: url("Pics services/Site Icons Services kids under 12.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PIC-6 {
+  background-image: url("Pics services/Site Icons Services skin fade.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PIC-7 {
+  background-image: url("Pics services/Site Icons Services moustache.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PIC-8 {
+  background-image: url("Pics services/Site Icons Services old clipper.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#OAP-image-container {
+  height: 40%;
+}
+#OAP-image-container img {
+  display: block;
+  width: 50%;
+  height: 40%;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+/* location map section */
+#Get-directions-container {
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  background-color: #353c3b;
+  opacity: 1;
+}
+
+#Get-directions-container h3 {
+  text-decoration: none;
+  color: white;
+  text-align: left;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+#link-to-google-maps {
+  text-decoration: none;
+  color: white;
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+#Map-title {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  padding: 5px 5px 0 5px;
+  color: black;
+  position: relative;
+  z-index: 3;
+  color: white;
+}
+#Map-subtitle {
+  text-align: left;
+  margin-left: 20px;
+  padding-left: 10px;
+  color: white;
+}
+.transition-effect {
+  animation-name: fade;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+.transition-effect-fade-out {
+  animation-name: fade-out;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+.opacity-effect {
+  transform: translateY(100px);
+  opacity: 0;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+#Location-map-container {
+  width: 100%;
+  height: 80vh;
+  margin-top: 30px;
+  position: relative;
+}
+#Location-map-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Opening hours content elements */
+
+#Main-opening-hours-container {
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#Opening-hours-title {
+  text-align: left;
+  position: relative;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 40px 10px 10px 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 20px;
+  color: white;
+}
+#Opening-hours-content-container {
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  height: 80%;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+.Days-paragraph {
+  font-size: 2.6rem;
+  line-height: 160%;
+  color: white;
+  letter-spacing: 1px;
+}
+.Hours-paragraph {
+  font-size: 1.7rem;
+  line-height: 100%;
+  color: white;
+  margin-top: -30px;
+  letter-spacing: 1px;
+}
+
+/* Contact us elements */
+
+#about-us-main-container {
+  background-size: cover;
+}
+#Contact-us-title {
+  margin-left: 20px;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+#About-us-info {
+  line-height: 160%;
+  margin: 0 20px;
+  color: white;
+  padding-left: 10px;
+  line-height: 190%;
+}
+#about-us-target {
+  width: 100%;
+  visibility: hidden;
+}
+
+/* Footer section */
+
+#Footer-main-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: space-between;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  padding-left: 20px;
+}
+#Address-container-footer {
+  width: 70%;
+}
+#Address-container-footer p {
+  padding-left: 0;
+  color: white;
+  text-decoration: none;
+  line-height: 150%;
+  margin-left: 10px;
+}
+
+#Links-container-footer {
+  width: 40%;
+  margin-left: 35px;
+}
+#Links-container-footer ul {
+  list-style: none;
+  text-align: center;
+  line-height: 350%;
+}
+#Links-container-footer ul a {
+  text-decoration: none;
+  color: white;
+}
+#Links-container-footer ul li {
+  margin-bottom: 3px;
+  font-size: 1.7rem;
+}
+#Gallery-container-footer {
+  width: 30%;
+}
+#Gallery-container-footer a {
+  text-decoration: none;
+  color: white;
+}
+#Gallery-container-footer p {
+  text-decoration: underline;
+  font-size: 1.7rem;
+}
+/* Strip elements */
+
+#Strip-container {
+  max-width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  margin: 0 20px 20px 20px;
+}
+#Strip-container a {
+}
+#Strip-container img {
+  width: 45px;
+  height: 45px;
+
+  margin-bottom: 10px;
+  background-color: #353c3b;
+}
+/*Copyright-info */
+#Copyright-container {
+  width: auto;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+#Copyright-info {
+  margin: 10px 10px 5px 5px;
+  display: inline;
+  color: white;
+}
+#Copyright-icon {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin: 8px 5px 5px 5px;
+}
+#Opening-hours-background-image-cont {
+  background-image: url("royalty free pics/5.jpeg");
+  width: 100%;
+  height: 100vw;
+  background-size: 100%;
+  margin-bottom: 0;
+  background-position: center;
+}
+#Guy-in-background-cont {
+  background-image: url("royalty free pics/guy.jpg");
+  width: 100%;
+  height: 100vw;
+  background-size: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#Walk-in-welcome-p {
+  line-height: 100%;
+  color: white;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+#about-us-background-pic {
+  background-image: url("royalty free pics/hair-salon-1514876_1280.jpg");
+  width: 100%;
+  height: 100vw;
+  background-size: 100%;
+  margin: 80px 0 20px 0;
+}
+#Pictures-of-preview-wrapper {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+}
+/* Preview images styling */
+
+/* //---------Haircut and style */
+#FirstServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/pics new/preview/22.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#FirstServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 6rem;
+  color: white;
+  margin-right: 10px;
+}
+#FirstServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+
+/* //---------Skin and fade  */
+#SecondServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/Skin fade.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#SecondServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 6rem;
+  color: white;
+  margin-right: 10px;
+}
+#SecondServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+/* //---------Hot Towel Shave */
+#ThirdServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/pics new/preview/2.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#ThirdServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 6rem;
+  color: white;
+  margin-right: 10px;
+}
+#ThirdServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+/* //---------Beard Trim  */
+#FourthServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/Beard trim.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#FourthServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 4rem;
+  font-weight: 600;
+  color: white;
+  margin-right: 10px;
+}
+#FourthServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+/* //---------Teens 13 to 16  */
+#FifthServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/Teens.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#FifthServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 6rem;
+  color: white;
+  margin-right: 10px;
+}
+#FifthServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+/* //---------Kids 12&under */
+#SixthServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/Kids.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#SixthServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 6rem;
+  color: white;
+  margin-right: 10px;
+}
+#SixthServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+/* //---------O.A.P. */
+#SeventhServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/pics new/preview/6.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#SeventhServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 6rem;
+  color: white;
+  margin-right: 10px;
+}
+#SeventhServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+/* //---------Clipper cut  */
+#EightServiceImage {
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  left: 0;
+  top: 20%;
+  transform: scale(0);
+  background-image: url("haircuts models/Clipper Cut.jpeg");
+  background-size: 100%;
+  z-index: 998;
+  opacity: 1;
+  transition: transform 1s;
+}
+#EightServiceImage i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 6rem;
+  color: white;
+  margin-right: 10px;
+}
+#EightServiceImage::after {
+  content: " \f00d";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+
+.bodyInPreviewMode {
+  overflow: hidden;
+  height: 100vh;
+}
+.Preview-wrapper {
+  left: 0 !important;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#Follow-us-p {
+  padding-left: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+#MapSectionForDesktop {
+  display: none;
+}
+#Footer-main-container-desktop {
+  display: none;
+}
+/* //---------Elements for gallery page  */
+
+#main-gallery-container {
+  max-width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: space-around;
+  margin-top: 96px;
+}
+
+.Image-container {
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  margin: 0 auto 15px auto;
+}
+.Image-Gallery {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  z-index: 2;
+}
+.close-image {
+  position: absolute;
+  background-color: white;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  border: 1px solid black;
+  width: 25px;
+  height: 25px;
+  display: block;
+  z-index: 999;
+  transition: all 1s ease-in-out;
+}
+.Title-container-for-gallery-page {
+}
+.Toggle-menu-for-gallery-page {
+  background-color: #353c3b;
+}
+#instaCont {
+  background-color: #353c3b;
+  margin-bottom: 25px;
+  padding: 20px 0;
+  position: relative;
+}
+#Insta-title-cont {
+  color: white;
+  text-align: center;
+  padding: 0 0 30px 0;
+}
+#Insta-popup {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #353c3b;
+  z-index: 99999 !important;
+  pointer-events: none;
+}
+.eapps-instagram-feed a {
+  pointer-events: none !important;
+}
+.booksy-widget-container-dialog {
+  display: inline-block;
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  position: absolute;
+  bottom: 50%;
+  left: calc(50% - 100px);
+}
